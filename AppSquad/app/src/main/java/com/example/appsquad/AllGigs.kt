@@ -32,9 +32,7 @@ class AllGigs : AppCompatActivity() {
 
         }
 
-        val sharedPreferences = this.getSharedPreferences("MySession", MODE_PRIVATE)
-        val cookiesAdmin = sharedPreferences.getString("admin", null)
-        val cookiescompany = sharedPreferences.getString("company", null)
+       //
 
 
 
