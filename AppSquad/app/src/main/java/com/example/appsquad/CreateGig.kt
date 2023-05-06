@@ -31,9 +31,7 @@ class CreateGig : AppCompatActivity() {
             finish()
         }
 
-        val gtitle = findViewById<EditText>(R.id.edtGigTitle)
-        val gdesc = findViewById<EditText>(R.id.edtGigDescription)
-        val gprice =findViewById<EditText>(R.id.edtGigPrice)
+        //
 
         val btnCreateGig = findViewById<Button>(R.id.btnCreateGig)
         btnCreateGig.setOnClickListener {
