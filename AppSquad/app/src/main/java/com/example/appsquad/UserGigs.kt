@@ -38,11 +38,6 @@ class UserGigs : AppCompatActivity() {
             }
         }
 
-        val btnGoback = findViewById<Button>(R.id.btnGoBackFromUserGigs)
-        btnGoback.setOnClickListener {
-            var intent = Intent(this, UserDashboard::class.java)
-            startActivity(intent)
-            finish()
-        }
+        //
     }
 }
