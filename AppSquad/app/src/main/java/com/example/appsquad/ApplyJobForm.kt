@@ -38,7 +38,7 @@ class ApplyJobForm : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             val dataJ = repositoryJ.getjobDetail(jid)
             title.text = dataJ.title
-            salary.text = dataJ.salary
+           
             desc.text = dataJ.description
             req.text =dataJ.requirements
 
