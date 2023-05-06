@@ -50,7 +50,7 @@ class CreateJob : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch {
             val jt = jtitle.text.toString()
             val js = jsalary.text.toString()
-           
+            val jd = jdesc.text.toString()
             val jr = jreq.text.toString()
 
             val ins = repository.insert(Job(jt,js,jr , jd, comp))
