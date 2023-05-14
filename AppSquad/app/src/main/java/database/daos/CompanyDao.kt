@@ -44,7 +44,6 @@ interface CompanyDao {
     @Query("UPDATE Company SET approved = \'approved\'  WHERE id = :id")
     fun approveCompany(id : Int ) : Int
 
-    @Query("SELECT * From Company WHERE approved LIKE \'pending\'")
-    fun getPendingCompanies(): List<Company>
+   
 
 }
