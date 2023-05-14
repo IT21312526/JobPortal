@@ -20,6 +20,9 @@ import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
+
+
+
 private const val PICK_IMAGE_REQUEST = 1
 
 class AddAdmin : AppCompatActivity() {
@@ -38,7 +41,8 @@ class AddAdmin : AppCompatActivity() {
 
         val btnCreateAdmin = findViewById<Button>(R.id.btnCreateAdmin)
         btnCreateAdmin.setOnClickListener {
-            addbtnClick(repository ,aemail , apassword , aprofile )
+            //calling the add fucntion
+            addbtnClick(repository ,aemail , apassword , aprofile  )
         }
 
         val btnGoAdminLogin = findViewById<Button>(R.id.btnGoAdminLogin)
