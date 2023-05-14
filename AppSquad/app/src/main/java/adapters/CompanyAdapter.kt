@@ -27,6 +27,7 @@ class CompanyAdapter: RecyclerView.Adapter<CompanyAdapter.ViewHolder>() {
     lateinit var context: Context
 
     class  ViewHolder(view: View):RecyclerView.ViewHolder(view){
+        
         val cbCompany:CheckBox
         val dissapprove:ImageView
         val approve:ImageView
@@ -43,6 +44,7 @@ class CompanyAdapter: RecyclerView.Adapter<CompanyAdapter.ViewHolder>() {
             tvId = view.findViewById(R.id.tvId)
             tvEmail = view.findViewById(R.id.tvCompanyEmail)
             tvPassword = view.findViewById(R.id.tvCompanyPassword)
+            
         }
     }
 
@@ -57,6 +59,7 @@ class CompanyAdapter: RecyclerView.Adapter<CompanyAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+//         updating details
          holder.cbCompany.text = data[position].name
         holder.tvAddress.text =data[position].address
         holder.tvId.text = data[position].id.toString()
