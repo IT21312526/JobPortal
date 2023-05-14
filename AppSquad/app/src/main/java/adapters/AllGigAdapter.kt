@@ -18,6 +18,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+//Adapter for All Gigs
+
 class AllGigAdapter: RecyclerView.Adapter<AllGigAdapter.ViewHolder>() {
     lateinit var data: List<Gig>
     lateinit var context: Context
