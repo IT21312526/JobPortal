@@ -63,9 +63,9 @@ class AddUser : AppCompatActivity() {
 
     fun addbtnClick(repository: UserRepository, uemail: EditText, upassword : EditText , uname :EditText){
 
-        val email = uemail.text.toString()
-        val password = upassword.text.toString()
-        val name = uname.text.toString()
+//         val email = uemail.text.toString()
+//         val password = upassword.text.toString()
+//         val name = uname.text.toString()
 
         if (validateForm(email, password, name)) {
             CoroutineScope(Dispatchers.IO).launch {
