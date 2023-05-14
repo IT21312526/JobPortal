@@ -22,10 +22,12 @@ import database.repositories.JobRepository
 import database.repositories.UserRepository
 import kotlinx.coroutines.*
 
+//User and Gig Adapter
 class GigUserAdapter: RecyclerView.Adapter<GigUserAdapter.ViewHolder>() {
     lateinit var data: List<Gig>
     lateinit var context: Context
 
+    
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var tvGigTitle: TextView
         var tvGigDesc: TextView

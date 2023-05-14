@@ -3,7 +3,7 @@ package database.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
+//Entites for User
 @Entity
 data class User(
     var email:String,

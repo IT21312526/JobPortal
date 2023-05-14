@@ -8,6 +8,7 @@ import database.entities.Company
 import database.entities.Gig
 import database.entities.Job
 
+//Sql queries
 @Dao
 interface GigDao {
 

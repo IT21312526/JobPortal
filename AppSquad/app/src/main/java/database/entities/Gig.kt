@@ -3,6 +3,7 @@ package database.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+//Gig Entities
 @Entity
 data class Gig(
     var title:String,
