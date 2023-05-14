@@ -80,6 +80,7 @@ class CompanyProfile : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        
 
         val btnDelete = findViewById<Button>(R.id.btnDeleteCompany)
         btnDelete.setOnClickListener {
