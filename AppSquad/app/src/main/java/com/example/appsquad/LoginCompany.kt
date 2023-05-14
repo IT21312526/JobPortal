@@ -15,6 +15,8 @@ import database.entities.Company
 import database.repositories.CompanyRepository
 import kotlinx.coroutines.*
 
+
+
 //import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 class LoginCompany : AppCompatActivity() {
@@ -36,13 +38,14 @@ class LoginCompany : AppCompatActivity() {
             loginCompany(repository , adapter , cemail , cpassword , this )
         }
 
-
+        //btn login
         val btnGoChooseLogin = findViewById<Button>(R.id.btnGoChooseLogin)
         btnGoChooseLogin.setOnClickListener {
             var intent = Intent(this, LoginChoose::class.java)
             startActivity(intent)
             finish()
         }
+        
 
         val btnGoCreateCompany =  findViewById<Button>(R.id.btnCompanyCreate)
         btnGoCreateCompany.setOnClickListener {
@@ -125,10 +128,10 @@ class LoginCompany : AppCompatActivity() {
 
 
     }
-
-    suspend fun showToast(message: String) = withContext(Dispatchers.Main) {
+ suspend fun showToast(message: String) = withContext(Dispatchers.Main) {
         Toast.makeText(this@LoginCompany, message, Toast.LENGTH_SHORT).show()
     }
+   
 
 
 }
