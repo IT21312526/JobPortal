@@ -9,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import database.daos.*
 import database.entities.*
 
-@Database(entities = [Company::class , Admin::class , Job::class, User::class , Gig::class , Application::class] , version = 10 )
+@Database(entities = [Company::class , Admin::class , Job::class, User::class , Gig::class , Application::class] , version = 12 )
 
 
 
@@ -32,21 +32,22 @@ abstract class CompanyDatabase: RoomDatabase() {
                     context.applicationContext,
                     CompanyDatabase::class.java,
                     "company_db"
-                ).addMigrations(MIGRATION_9_10).build().also {
+                ).addMigrations(MIGRATION_11_12).build().also {
                     INSTANCE = it
                 }
             }
         }
 
 
-        val MIGRATION_9_10 = object : Migration(9, 10) {
+        val MIGRATION_11_12 = object : Migration(11, 12) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // Add the "Employee" table to the database
 //                database.execSQL("CREATE TABLE IF NOT EXISTS `Company` (`name` TEXT NOT NULL , `password` TEXT NOT NULL , `approved` BOOLEAN NOT NULL ,`address` TEXT NOT NULL ,  `password` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT,  `email` TEXT NOT NULL)")
 //                database.execSQL("DROP TABLE IF EXISTS `Company`")
 //                database.execSQL("DROP TABLE if EXISTS `Company`" )
-               database.execSQL("DROP TABLE if EXISTS `Application`")
-                database.execSQL("CREATE TABLE IF NOT EXISTS `Application` (`notes` TEXT NOT NULL , `jobId` INT NOT NULL , `user` INT NOT NULL , `contact` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT)")
+               database.execSQL("DROP TABLE if EXISTS `Company`")
+//                database.execSQL("CREATE TABLE IF NOT EXISTS `Admin` (`email` TEXT NOT NULL , `password` TEXT NOT NULL , `profilePic` BYTEARRAY NOT NULL , `id` INTEGER PRIMARY KEY AUTOINCREMENT)")
+                database.execSQL("CREATE TABLE IF NOT EXISTS `Company` (`regNo` TEXT NOT NULL , `password` TEXT NOT NULL , `approved` TEXT NOT NULL , `address` TEXT NOT NULL , `phone` TEXT NOT NULL , `name` TEXT NOT NULL ,`description` TEXT NOT NULL , `id` INTEGER PRIMARY KEY AUTOINCREMENT , `email` TEXT NOT NULL , `companyImg` BYTEARRAY NOT NULL  )")
             }
         }
     }
