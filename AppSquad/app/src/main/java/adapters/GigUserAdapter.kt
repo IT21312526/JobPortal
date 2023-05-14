@@ -7,16 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appsquad.EditGig
 import com.example.appsquad.LoginCompany
 import com.example.appsquad.R
+import com.example.appsquad.UserDashboard
 import database.CompanyDatabase
 import database.entities.Gig
 import database.entities.Job
 import database.repositories.GigRepository
 import database.repositories.JobRepository
+import database.repositories.UserRepository
 import kotlinx.coroutines.*
 
 class GigUserAdapter: RecyclerView.Adapter<GigUserAdapter.ViewHolder>() {
@@ -63,8 +66,14 @@ class GigUserAdapter: RecyclerView.Adapter<GigUserAdapter.ViewHolder>() {
         holder.tvGigTitle.text = data[position].title.toString()
         holder.tvGigDesc.text = data[position].description.toString()
         holder.tvGigPrice.text = data[position].price.toString()
-        holder.tvGigUser.text = data[position].user.toString()
+//        holder.tvGigUser.text = data[position].user.toString()
         holder.tvGigId.text = data[position].id.toString()
+
+        val repository = UserRepository(CompanyDatabase.getInstance(context))
+        CoroutineScope(Dispatchers.IO).launch {
+            val dt = repository.getUserDetail(data[position].user.toInt())
+            holder.tvGigUser.text = dt.name
+        }
 
         holder.btnEditGig.setOnClickListener {
 
@@ -82,6 +91,10 @@ class GigUserAdapter: RecyclerView.Adapter<GigUserAdapter.ViewHolder>() {
             CoroutineScope(Dispatchers.IO).launch {
                 repository.delete(data[position])
             }
+
+            val intent = Intent(context, UserDashboard::class.java)
+            Toast.makeText(context, "Gig Deleted...", Toast.LENGTH_SHORT).show()
+            context.startActivity(intent)
         }
 
     }
