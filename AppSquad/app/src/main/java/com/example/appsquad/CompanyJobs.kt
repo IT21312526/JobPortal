@@ -37,6 +37,7 @@ class CompanyJobs : AppCompatActivity() {
                 adapter.setData(data ,ui)
             }
         }
+        
 
         val btngoback = findViewById<Button>(R.id.btnGoCompDashfromjobs)
         btngoback.setOnClickListener {
