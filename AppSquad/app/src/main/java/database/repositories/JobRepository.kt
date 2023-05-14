@@ -4,6 +4,7 @@ import database.CompanyDatabase
 import database.entities.Company
 import database.entities.Job
 
+
 class JobRepository(
     private  val db: CompanyDatabase
 ) {
