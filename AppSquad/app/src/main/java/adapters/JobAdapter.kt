@@ -37,6 +37,7 @@ class JobAdapter: RecyclerView.Adapter<JobAdapter.ViewHolder>() {
         var btnDeleteJob:Button
         var btnViewApplication:Button
         var btnGoEditjob:Button
+        
 
         init {
             tvJobTitle = view.findViewById(R.id.tvJobTitle)
@@ -59,6 +60,7 @@ class JobAdapter: RecyclerView.Adapter<JobAdapter.ViewHolder>() {
 
         return JobAdapter.ViewHolder(view)
     }
+    
 
 
     override fun getItemCount(): Int {
