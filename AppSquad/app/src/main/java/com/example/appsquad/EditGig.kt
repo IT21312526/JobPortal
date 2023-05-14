@@ -68,9 +68,9 @@ class EditGig : AppCompatActivity() {
             repository.updateGig(title, description, price, id)
 
             // Show toast message for successful gig update
-            launch(Dispatchers.Main) {
-                Toast.makeText(this@EditGig, "Gig updated successfully", Toast.LENGTH_SHORT).show()
-            }
+//             launch(Dispatchers.Main) {
+//                 Toast.makeText(this@EditGig, "Gig updated successfully", Toast.LENGTH_SHORT).show()
+//             }
         }
 
         var intent = Intent(this, UserGigs::class.java)
