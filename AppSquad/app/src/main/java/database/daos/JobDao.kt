@@ -7,6 +7,7 @@ import androidx.room.Query
 import database.entities.Company
 import database.entities.Job
 
+
 @Dao
 interface JobDao {
 
