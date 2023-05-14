@@ -31,6 +31,7 @@ interface CompanyDao {
     @Query("SELECT * From Company WHERE id = :id")
     fun getCompanyDetail(id : Int) : Company
 
+    //edit company
     @Query("UPDATE Company SET name =:name ,email =:email , address =:address ,password = :password , phone = :phone , regNo =:regNo , description=:description , companyImg=:companyImg WHERE id = :id")
     fun updateCompany(id : Int , name : String , email :String , address: String , password:String , phone:String , regNo:String , description:String , companyImg:ByteArray) : Int
 
