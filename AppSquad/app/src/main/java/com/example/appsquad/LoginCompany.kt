@@ -38,13 +38,8 @@ class LoginCompany : AppCompatActivity() {
             loginCompany(repository , adapter , cemail , cpassword , this )
         }
 
-
-        val btnGoChooseLogin = findViewById<Button>(R.id.btnGoChooseLogin)
-        btnGoChooseLogin.setOnClickListener {
-            var intent = Intent(this, LoginChoose::class.java)
-            startActivity(intent)
-            finish()
-        }
+        //btn login
+        
 
         val btnGoCreateCompany =  findViewById<Button>(R.id.btnCompanyCreate)
         btnGoCreateCompany.setOnClickListener {
