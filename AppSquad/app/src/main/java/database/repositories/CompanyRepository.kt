@@ -5,6 +5,7 @@ import database.AppSquadDatabase
 import database.CompanyDatabase
 import database.entities.Company
 
+
 class CompanyRepository (
     private  val db: CompanyDatabase
     ){
