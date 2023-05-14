@@ -31,10 +31,10 @@ class EditGig : AppCompatActivity() {
         val id = intent.getStringExtra("gigId").toString()
         val gid = id.toInt()
 
-//         val edtGTitle = findViewById<EditText>(R.id.edtEditGigTitle)
-//         val edtGDesc = findViewById<EditText>(R.id.edtEditGigDesc)
-//         val edtGPrice = findViewById<EditText>(R.id.edtEditGigPrice)
-//         val btnsaveGig = findViewById<Button>(R.id.btnEditSaveGig)
+        val edtGTitle = findViewById<EditText>(R.id.edtEditGigTitle)
+        val edtGDesc = findViewById<EditText>(R.id.edtEditGigDesc)
+        val edtGPrice = findViewById<EditText>(R.id.edtEditGigPrice)
+        val btnsaveGig = findViewById<Button>(R.id.btnEditSaveGig)
         btnsaveGig.setOnClickListener {
             updateGig(repository, edtGTitle, edtGDesc ,edtGPrice, gid )
         }
