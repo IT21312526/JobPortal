@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".PendingNotice">
+    
 
     <LinearLayout
         android:id="@+id/linearLayout14"
