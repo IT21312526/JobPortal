@@ -15,7 +15,7 @@ class CompanyRepository (
     fun getAllCompanyCounts() = db.getCompanyDao().getAllCompanyCounts()
     fun getCompanyLogin(email:String) = db.getCompanyDao().getCompanyLogin(email)
     fun getCompanyDetail(id:Int) = db.getCompanyDao().getCompanyDetail(id)
-    fun updateCompany(id : Int , name : String , email :String , address: String , password:String , phone:String , regNo:String , description: String) = db.getCompanyDao().updateCompany(id,name,email,address,password , phone, regNo, description)
+    fun updateCompany(id : Int , name : String , email :String , address: String , password:String , phone:String , regNo:String , description: String , companyImg:ByteArray) = db.getCompanyDao().updateCompany(id,name,email,address,password , phone, regNo, description , companyImg)
     fun dissaproveCompany(id: Int) = db.getCompanyDao().dissaproveCompany(id)
     fun getPendingCompanies() = db.getCompanyDao().getPendingCompanies()
     fun approveCompany(id: Int) = db.getCompanyDao().approveCompany(id)
