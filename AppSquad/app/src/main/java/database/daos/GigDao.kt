@@ -25,6 +25,7 @@ interface GigDao {
     @Query("SELECT * From Gig WHERE id = :id")
     fun getGigDetail(id : Int) : Gig
 
+    //Update gig details
     @Query("UPDATE Gig SET title =:title ,description =:description , price =:price  WHERE id = :id")
     fun updateGig(title:String , description:String , price:String , id: Int) : Int
 
