@@ -19,6 +19,7 @@ interface GigDao {
     @Query("SELECT * From Gig")
     fun getAllGigs(): List<Gig>
 
+    //
     @Query("SELECT * From Gig WHERE user =:userId")
     fun getUserGigs(userId : Int): List<Gig>
 
