@@ -9,13 +9,12 @@ import android.os.Bundle
 import android.widget.Adapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import database.CompanyDatabase
 import database.entities.Company
 import database.repositories.CompanyRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+
 //import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 class LoginCompany : AppCompatActivity() {
@@ -59,35 +58,53 @@ class LoginCompany : AppCompatActivity() {
         val ce = clemail.text.toString()
         val cp = clpassword.text.toString()
 
-        GlobalScope.launch(Dispatchers.IO) {
-            val data = repository.getCompanyLogin(ce)
+        val input1 = clemail.text.toString().trim()
+        val input2 =clpassword.text.toString().trim()
+        if (input1.isNotEmpty() &&  input2.isNotEmpty()) {
 
-            if( data != null) {
-                if( data.password == cp ) {
+            CoroutineScope(Dispatchers.IO).launch {
+                val data = repository.getCompanyLogin(ce)
 
-                    val sharedPreferences = context.getSharedPreferences("MySession", Context.MODE_PRIVATE)
-                    val editor = sharedPreferences.edit()
-                    editor.putString("company", data.id.toString())
-                    editor.apply()
+                if( data != null) {
+                    if( data.password == cp ) {
 
-                    var intent = Intent(context, CompanyDashboard::class.java)
-                    startActivity(intent)
-                    finish()
+                        val sharedPreferences = context.getSharedPreferences("MySession", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("company", data.id.toString())
+                        editor.apply()
+
+                        var intent = Intent(context, CompanyDashboard::class.java)
+                        startActivity(intent)
+                        finish()
+
+                    }else {
+                        withContext(Dispatchers.Main) {
+                            clpassword.error = "Invalid Password"
+                        }
+//                            Toast.makeText(context, "Invalid password", Toast.LENGTH_SHORT).show()
+
+                    }
 
                 }else {
-                    var intent = Intent(context, AddCompany::class.java)
-                    startActivity(intent)
-                    finish()
+                    withContext(Dispatchers.Main) {
+                        clemail.error = "Invalid email Address"
+                    }
+//                    Toast.makeText(context, "Invalid email address", Toast.LENGTH_SHORT).show()
+
                 }
 
-            }else {
-                var intent = Intent(context, LoginChoose::class.java)
-                startActivity(intent)
-                finish()
+
             }
 
 
+        }else {
+            clemail.error = "Required"
+            clpassword.error = "Required"
+            Toast.makeText(this@LoginCompany, "Fill all the fields", Toast.LENGTH_SHORT).show()
+
         }
+
+
 //        CoroutineScope(Dispatchers.IO).launch {
 //            val data = repository.getCompanyLogin(ce)
 //            if( data.password == cp ) {
@@ -108,4 +125,10 @@ class LoginCompany : AppCompatActivity() {
 
 
     }
+
+    suspend fun showToast(message: String) = withContext(Dispatchers.Main) {
+        Toast.makeText(this@LoginCompany, message, Toast.LENGTH_SHORT).show()
+    }
+
+
 }
