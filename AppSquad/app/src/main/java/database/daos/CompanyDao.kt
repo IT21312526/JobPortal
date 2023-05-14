@@ -7,6 +7,7 @@ import androidx.room.Query
 import database.entities.Company
 
 
+
 @Dao
 interface CompanyDao {
     @Insert
