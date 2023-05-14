@@ -56,6 +56,13 @@ class UserDashboard : AppCompatActivity() {
             finish()
         }
 
+        val btnUserApplications = findViewById<Button>(R.id.btnUserApplications)
+        btnUserApplications.setOnClickListener {
+            var intent = Intent(this, UserApplications::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         val btnViewMygigs = findViewById<Button>(R.id.btnViewMyGigs)
         btnViewMygigs.setOnClickListener {
             var intent = Intent(this, UserGigs::class.java)

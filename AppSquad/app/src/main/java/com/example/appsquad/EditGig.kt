@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import database.CompanyDatabase
 import database.repositories.CompanyRepository
 import database.repositories.GigRepository
@@ -30,7 +31,6 @@ class EditGig : AppCompatActivity() {
         val id = intent.getStringExtra("gigId").toString()
         val gid = id.toInt()
 
-        //
         val edtGTitle = findViewById<EditText>(R.id.edtEditGigTitle)
         val edtGDesc = findViewById<EditText>(R.id.edtEditGigDesc)
         val edtGPrice = findViewById<EditText>(R.id.edtEditGigPrice)
@@ -66,6 +66,11 @@ class EditGig : AppCompatActivity() {
             val price = edtGPrice.text.toString()
 
             repository.updateGig(title, description, price, id)
+
+            // Show toast message for successful gig update
+            launch(Dispatchers.Main) {
+                Toast.makeText(this@EditGig, "Gig updated successfully", Toast.LENGTH_SHORT).show()
+            }
         }
 
         var intent = Intent(this, UserGigs::class.java)
