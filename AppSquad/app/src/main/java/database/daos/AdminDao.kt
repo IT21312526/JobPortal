@@ -13,13 +13,19 @@ interface AdminDao {
     suspend fun insertAdmin(admin: Admin)
     @Delete
     suspend fun delete(admin: Admin)
-    @Query("SELECT * From Company")
+
+    @Query("SELECT * From Admin")
     fun getAllAdmin(): List<Admin>
+
     @Query("SELECT * From Admin WHERE email LIKE :email")
     fun getAdminLogin(email : String) : Admin
 
     @Query("SELECT * From Admin WHERE id = :id")
     fun getAdminDetail(id : Int) : Admin
+
+    @Query("UPDATE Admin SET email =:email ,password =:password , profilePic =:profilePic  WHERE id = :id")
+    fun updateAdmin(id : Int , email : String , password :String , profilePic: ByteArray ) : Int
+
 
 
 }

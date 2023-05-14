@@ -6,12 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import database.CompanyDatabase
 import database.repositories.AdminRepository
 import database.repositories.CompanyRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class LoginAdmin : AppCompatActivity() {
 
@@ -53,13 +52,19 @@ class LoginAdmin : AppCompatActivity() {
         val ae = ademail.text.toString()
         val ap = adpassword.text.toString()
 
-        GlobalScope.launch(Dispatchers.IO) {
+        val userInput1 = ademail.text.toString().trim()
+        val userInput2 = adpassword.text.toString().trim()
+        if (userInput1.isNotEmpty() &&  userInput2.isNotEmpty()) {
+
+            val scope = CoroutineScope(Dispatchers.Main)
+            GlobalScope.launch(Dispatchers.IO) {
             val data = repository.getAdminLogin(ae)
 
-            if ( data!= null) {
-                if( data.password == ap ) {
+            if (data != null) {
+                if (data.password == ap) {
 
-                    val sharedPreferences = context.getSharedPreferences("MySession", Context.MODE_PRIVATE)
+                    val sharedPreferences =
+                        context.getSharedPreferences("MySession", Context.MODE_PRIVATE)
                     val editor = sharedPreferences.edit()
                     editor.putString("admin", data.id.toString())
                     editor.apply()
@@ -68,21 +73,24 @@ class LoginAdmin : AppCompatActivity() {
                     startActivity(intent)
                     finish()
 
-                }else {
-                    var intent = Intent(context, LoginChoose::class.java)
-                    startActivity(intent)
-                    finish()
+                } else {
+                    showToast("Incorrect Password")
                 }
-            }else {
-                var intent = Intent(context, AddAdmin::class.java)
-                startActivity(intent)
-                finish()
+            } else {
+                showToast("Incorrect Email")
+
             }
 
-
+        }
+        }else {
+            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
         }
 
 
 
+    }
+
+    suspend fun showToast(message: String) = withContext(Dispatchers.Main) {
+        Toast.makeText(this@LoginAdmin, message, Toast.LENGTH_SHORT).show()
     }
 }
