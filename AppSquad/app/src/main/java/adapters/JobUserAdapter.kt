@@ -25,6 +25,7 @@ class JobUserAdapter: RecyclerView.Adapter<JobUserAdapter.ViewHolder>() {
 
     lateinit var data: List<Job>
     lateinit var context: Context
+    
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var tvUserJobTitle: TextView
@@ -42,6 +43,7 @@ class JobUserAdapter: RecyclerView.Adapter<JobUserAdapter.ViewHolder>() {
             tvUserJobComp = view.findViewById(R.id.tvUserJobCompany)
             btnApply = view.findViewById(R.id.btnApplJob)
         }
+        
 
 
 

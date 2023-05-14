@@ -12,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+
 class EditJob : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,7 @@ class EditJob : AppCompatActivity() {
 
         val id = intent.getStringExtra("jobId").toString()
         val jid = id.toInt()
+        
 
         val repositoryJ = JobRepository(CompanyDatabase.getInstance(this))
 

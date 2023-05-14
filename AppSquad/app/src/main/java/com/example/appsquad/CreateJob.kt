@@ -15,6 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+
 class CreateJob : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,7 @@ class CreateJob : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        
 
         val btnCreateJob = findViewById<Button>(R.id.btnAddJob)
         btnCreateJob.setOnClickListener {

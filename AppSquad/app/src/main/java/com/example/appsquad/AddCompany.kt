@@ -92,7 +92,7 @@ class AddCompany : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-            // Perform further operations with the selected image URI
+            // Perform Further Operations With The Selected Image URI
         }
     }
 
