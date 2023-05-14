@@ -80,6 +80,8 @@ class CompanyAdapter: RecyclerView.Adapter<CompanyAdapter.ViewHolder>() {
 //                        holder.ivDelete.setImageResource(R.drawable.delete_image)
                     }
                 }
+                Toast.makeText(context,"Company Disapproved",Toast.LENGTH_LONG)
+                    .show()
             }else{
                 Toast.makeText(context,"Cannot Dissaprove unmarked Company Request",Toast.LENGTH_LONG)
                     .show()
@@ -105,6 +107,9 @@ class CompanyAdapter: RecyclerView.Adapter<CompanyAdapter.ViewHolder>() {
 //                        holder.ivDelete.setImageResource(R.drawable.delete_image)
                     }
                 }
+
+                Toast.makeText(context,"Company Approved",Toast.LENGTH_LONG)
+                    .show()
             }else{
                 Toast.makeText(context,"Cannot approve unmarked Company Request",Toast.LENGTH_LONG)
                     .show()
