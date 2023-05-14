@@ -1,11 +1,6 @@
 package database.daos
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import database.entities.Admin
-import database.entities.Company
+
 
 @Dao
 interface AdminDao {
