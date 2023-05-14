@@ -1,5 +1,20 @@
 package com.example.appsquad
 
+import android.content.Context
+import android.content.Intent
+import android.graphics.BitmapFactory
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import database.CompanyDatabase
+import database.repositories.AdminRepository
+import database.repositories.CompanyRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 
 class AdminProfile : AppCompatActivity() {
