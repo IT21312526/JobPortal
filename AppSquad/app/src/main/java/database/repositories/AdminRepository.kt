@@ -13,4 +13,5 @@ class AdminRepository(
     fun getAdminLogin(email:String) =db.getAdminDao().getAdminLogin(email)
     fun getAllAdmin() =  db.getAdminDao().getAllAdmin()
     fun getAdminDetail(id:Int) = db.getAdminDao().getAdminDetail(id)
+    fun updateAdmin(id:Int , email:String , password:String , profilePic:ByteArray) = db.getAdminDao().updateAdmin(id , email , password, profilePic)
 }
