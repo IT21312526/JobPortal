@@ -13,6 +13,7 @@ import database.repositories.JobRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import android.widget.Toast
 
 class CreateGig : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +32,6 @@ class CreateGig : AppCompatActivity() {
             finish()
         }
 
-        //
         val gtitle = findViewById<EditText>(R.id.edtGigTitle)
         val gdesc = findViewById<EditText>(R.id.edtGigDescription)
         val gprice =findViewById<EditText>(R.id.edtGigPrice)
@@ -42,22 +42,48 @@ class CreateGig : AppCompatActivity() {
                 addJob(repository , gtitle , gdesc , gprice ,cookies.toInt(), this)
             }
         }
+
     }
 
 
     fun addJob(repository: GigRepository, gtitle: EditText, gdesc:EditText, gprice:EditText, user:Int, context: Context){
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val gt = gtitle.text.toString()
-            val gd = gdesc.text.toString()
-            val gp = gprice.text.toString()
+        val title = gtitle.text.toString()
+        val description = gdesc.text.toString()
+        val price = gprice.text.toString()
 
+        fun validateForm(title: String, description: String, price: String): Boolean {
+            if (title.isEmpty()) {
+                gtitle.error = "Title is required"
+                return false
+            }
 
-            repository.insert(Gig(gt,gd,gp,user))
+            if (description.isEmpty()) {
+                gdesc.error = "Description is required"
+                return false
+            }
 
-            var intent = Intent(context, UserDashboard::class.java)
-            startActivity(intent)
-            finish()
+            if (price.isEmpty()) {
+                gprice.error = "Price is required"
+                return false
+            }
+
+            return true
+        }
+
+        if (validateForm(title, description, price)) {
+            CoroutineScope(Dispatchers.IO).launch {
+                repository.insert(Gig(title, description, price, user))
+
+                // Show toast message for successful gig addition
+                launch(Dispatchers.Main) {
+                    Toast.makeText(context, "Gig added successfully", Toast.LENGTH_SHORT).show()
+                }
+
+                val intent = Intent(context, UserDashboard::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
 
     }

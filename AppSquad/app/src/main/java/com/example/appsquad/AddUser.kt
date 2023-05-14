@@ -42,20 +42,40 @@ class AddUser : AppCompatActivity() {
 
     }
 
+    fun validateForm(email: String, password: String, name: String): Boolean {
+        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            uemail.error = "Invalid email address"
+            return false
+        }
+
+        if (password.isEmpty() || password.length < 6) {
+            upassword.error = "Password must be at least 6 characters long"
+            return false
+        }
+
+        if (name.isEmpty()) {
+            uname.error = "Name is required"
+            return false
+        }
+
+        return true
+    }
+
     fun addbtnClick(repository: UserRepository, uemail: EditText, upassword : EditText , uname :EditText){
 
-        CoroutineScope(Dispatchers.IO).launch {
+        val email = uemail.text.toString()
+        val password = upassword.text.toString()
+        val name = uname.text.toString()
 
-            val ue = uemail.text.toString()
-            val up = upassword.text.toString()
-            val un = uname.text.toString()
-            repository.insert(User(ue,up,un))
+        if (validateForm(email, password, name)) {
+            CoroutineScope(Dispatchers.IO).launch {
+                repository.insert(User(email, password, name))
+            }
 
+            val intent = Intent(this, UserLogin::class.java)
+            startActivity(intent)
+            finish()
         }
-        var intent = Intent(this, UserLogin::class.java)
-//        intent.putExtra("answer" , ans)
-        startActivity(intent)
-        finish()
     }
 
 
