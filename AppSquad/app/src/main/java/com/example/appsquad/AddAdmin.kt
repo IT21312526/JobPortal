@@ -39,7 +39,7 @@ class AddAdmin : AppCompatActivity() {
         val btnCreateAdmin = findViewById<Button>(R.id.btnCreateAdmin)
         btnCreateAdmin.setOnClickListener {
             //calling the add fucntion
-            addbtnClick(repository ,aemail , apassword , aprofile )
+            addbtnClick(repository ,aemail , apassword , aprofile  )
         }
 
         val btnGoAdminLogin = findViewById<Button>(R.id.btnGoAdminLogin)
