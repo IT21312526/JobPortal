@@ -12,7 +12,8 @@ data class Company(
     var approved:String,
     var regNo:String,
     var phone:String,
-    var description:String
+    var description:String,
+    var companyImg: ByteArray
 
 ) {
     @PrimaryKey(autoGenerate = true)
