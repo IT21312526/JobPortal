@@ -95,16 +95,10 @@ class AddCompany : AppCompatActivity() {
             // Perform further operations with the selected image URI
         }
     }
+    
+    //validation
 
-    fun isValidPhoneNumber(phoneNumber: String): Boolean {
-        val regexPattern = Regex("^[+]?[0-9]{10,13}\$")
-        return regexPattern.matches(phoneNumber)
-    }
-
-    fun isEmailValid(email: String): Boolean {
-        val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-z]+\\.[a-z]+")
-        return email.matches(emailPattern)
-    }
+    
 
     fun addbtnClick(repository: CompanyRepository, adapter: CompanyAdapter , cname :EditText , caddress:EditText , cemail:EditText , cpassword :EditText , cphone:EditText , cregno : EditText , cdesc:EditText , cimg:ImageButton){
         val drawable: Drawable? = cimg.drawable
