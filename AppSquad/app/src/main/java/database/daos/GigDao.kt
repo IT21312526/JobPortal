@@ -28,6 +28,7 @@ interface GigDao {
     @Query("UPDATE Gig SET title =:title ,description =:description , price =:price  WHERE id = :id")
     fun updateGig(title:String , description:String , price:String , id: Int) : Int
 
+    //Count all the gigs
     @Query("SELECT COUNT(*) From Gig ")
     fun getGigCount() : Int
 
