@@ -22,9 +22,9 @@ class AddUser : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_user)
 
-        uemail = findViewById(R.id.edtEmailCreateUser)
-        upassword = findViewById(R.id.edtPasswordCreateUser)
-        uname = findViewById(R.id.edtNameCreateUser)
+//         uemail = findViewById(R.id.edtEmailCreateUser)
+//         upassword = findViewById(R.id.edtPasswordCreateUser)
+//         uname = findViewById(R.id.edtNameCreateUser)
 
         val btngoback = findViewById<Button>(R.id.btnGoUserLogin)
         btngoback.setOnClickListener{
