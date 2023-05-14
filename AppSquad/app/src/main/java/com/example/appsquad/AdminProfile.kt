@@ -36,7 +36,8 @@ class AdminProfile : AppCompatActivity() {
                 tvEmail.text = data.password
                 
                 //converting into bitmap
-                
+                val bitmap = BitmapFactory.decodeByteArray(data.profilePic, 0, data.profilePic.size)
+                imgAdmin.setImageBitmap(bitmap)
             }
 
 
