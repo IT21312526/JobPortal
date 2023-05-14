@@ -21,6 +21,10 @@ class AdminDashboard : AppCompatActivity() {
         
         
         //repositories
+           val repository = CompanyRepository(CompanyDatabase.getInstance(this))
+        val repositoryJob = JobRepository(CompanyDatabase.getInstance(this))
+        val repositoryUser = UserRepository(CompanyDatabase.getInstance(this))
+        val repositoryGig = GigRepository(CompanyDatabase.getInstance(this))
         
         CoroutineScope(Dispatchers.IO).launch {
             val data = repository.getAllCompanies()
