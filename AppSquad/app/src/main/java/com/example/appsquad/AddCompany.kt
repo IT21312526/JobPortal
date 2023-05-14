@@ -97,6 +97,16 @@ class AddCompany : AppCompatActivity() {
     }
     
     //validation
+    
+     fun isValidPhoneNumber(phoneNumber: String): Boolean {
+        val regexPattern = Regex("^[+]?[0-9]{10,13}\$")
+        return regexPattern.matches(phoneNumber)
+    }
+
+    fun isEmailValid(email: String): Boolean {
+        val emailPattern = Regex("[a-zA-Z0-9._-]+@[a-z]+\\.[a-z]+")
+        return email.matches(emailPattern)
+    }
 
     
 
