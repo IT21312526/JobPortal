@@ -6,16 +6,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import database.CompanyDatabase
 import database.entities.Application
 import database.repositories.AdminRepository
 import database.repositories.ApplicationRepository
 import database.repositories.CompanyRepository
 import database.repositories.JobRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class ApplyJobForm : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,14 +71,35 @@ class ApplyJobForm : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 val an = notes.text.toString()
                 val ac = contact.text.toString()
+                val context = this
+                val userInput1 = notes.text.toString().trim()
+                val userInput2 = contact.text.toString().trim()
+                if (userInput1.isNotEmpty() &&  userInput2.isNotEmpty()) {
+                    user?.let { it1 -> Application(an , jid , it1, ac) }
+                        ?.let { it2 -> repositoryA.insert(it2) }
 
-                user?.let { it1 -> Application(an , jid , it1, ac) }
-                    ?.let { it2 -> repositoryA.insert(it2) }
+
+                }else {
+                    withContext(Dispatchers.Main) {
+                        notes.error = "Required"
+                        contact.error=  "Required"
+                    }
+                    showToast("Fill all the required fields")
+
+                }
+
+
+
+
             }
 
-            var intent = Intent(this, AllJobs::class.java)
-            startActivity(intent)
-            finish()
+//            var intent = Intent(this, AllJobs::class.java)
+//            startActivity(intent)
+//            finish()
         }
+    }
+
+    suspend fun showToast(message: String) = withContext(Dispatchers.Main) {
+        Toast.makeText(this@ApplyJobForm, message, Toast.LENGTH_SHORT).show()
     }
 }
