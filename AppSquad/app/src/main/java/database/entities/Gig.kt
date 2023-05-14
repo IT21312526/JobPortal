@@ -12,6 +12,6 @@ data class Gig(
     val user : Int
 
 ){
-//     @PrimaryKey(autoGenerate = true)
-//     var id: Int? = null
+    @PrimaryKey(autoGenerate = true)
+    var id: Int? = null
 }
