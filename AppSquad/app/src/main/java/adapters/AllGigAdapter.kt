@@ -13,6 +13,7 @@ import com.example.appsquad.R
 import database.CompanyDatabase
 import database.entities.Gig
 import database.repositories.GigRepository
+import database.repositories.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,10 +60,14 @@ class AllGigAdapter: RecyclerView.Adapter<AllGigAdapter.ViewHolder>() {
         holder.tvGigTitle.text = data[position].title.toString()
         holder.tvGigDesc.text = data[position].description.toString()
         holder.tvGigPrice.text = data[position].price.toString()
-        holder.tvGigUser.text = data[position].user.toString()
+//        holder.tvGigUser.text = data[position].user.toString()
         holder.tvGigId.text = data[position].id.toString()
 
-
+        val repository = UserRepository(CompanyDatabase.getInstance(context))
+        CoroutineScope(Dispatchers.IO).launch {
+            val dt = repository.getUserDetail(data[position].user.toInt())
+            holder.tvGigUser.text = dt.name
+        }
 
 
 
