@@ -42,24 +42,24 @@ class AddUser : AppCompatActivity() {
 
     }
 
-    fun validateForm(email: String, password: String, name: String): Boolean {
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            uemail.error = "Invalid email address"
-            return false
-        }
+//     fun validateForm(email: String, password: String, name: String): Boolean {
+//         if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+//             uemail.error = "Invalid email address"
+//             return false
+//         }
 
-        if (password.isEmpty() || password.length < 6) {
-            upassword.error = "Password must be at least 6 characters long"
-            return false
-        }
+//         if (password.isEmpty() || password.length < 6) {
+//             upassword.error = "Password must be at least 6 characters long"
+//             return false
+//         }
 
-        if (name.isEmpty()) {
-            uname.error = "Name is required"
-            return false
-        }
+//         if (name.isEmpty()) {
+//             uname.error = "Name is required"
+//             return false
+//         }
 
-        return true
-    }
+//         return true
+//     }
 
     fun addbtnClick(repository: UserRepository, uemail: EditText, upassword : EditText , uname :EditText){
 
