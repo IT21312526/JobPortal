@@ -22,6 +22,7 @@ class CompanyDashboard : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        
 
         val repository = CompanyRepository(CompanyDatabase.getInstance(this))
 
