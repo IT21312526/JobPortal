@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Company(
+    //Company columns
     var name: String,
     var password:String,
     var  address: String,
