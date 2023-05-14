@@ -38,7 +38,7 @@ class GigUserAdapter: RecyclerView.Adapter<GigUserAdapter.ViewHolder>() {
         var btnDeleteGig: Button
 
 
-      /*  init {
+       init {
             tvGigTitle = view.findViewById(R.id.tvGigTitle)
             tvGigDesc = view.findViewById(R.id.tvGigDesc)
             tvGigPrice = view.findViewById(R.id.tvGigPrice)
@@ -47,7 +47,7 @@ class GigUserAdapter: RecyclerView.Adapter<GigUserAdapter.ViewHolder>() {
             tvGigId = view.findViewById(R.id.tvGigIdd)
             btnDeleteGig = view.findViewById(R.id.btnDeleteGig)
 
-        }*/
+        }
 
 
 
