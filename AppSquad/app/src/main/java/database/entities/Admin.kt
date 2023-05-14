@@ -5,6 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Admin(
+    //Admin columns
     var email:String,
     var password:String ,
     val profilePic: ByteArray
