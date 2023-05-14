@@ -1,19 +1,6 @@
 package com.example.appsquad
 
-import adapters.CompanyAdapter
-import android.app.AlertDialog
-import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.Adapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import database.CompanyDatabase
-import database.entities.Company
-import database.repositories.CompanyRepository
-import kotlinx.coroutines.*
+
 
 //import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
