@@ -15,8 +15,10 @@ class LoginChoose : AppCompatActivity() {
         val cookiesCompany = sharedPreferences.getString("company", null)
         val cookiesAdmin = sharedPreferences.getString("admin" , null)
         val cookiesUser = sharedPreferences.getString("user" , null)
-
-        if (cookiesCompany != null) {
+    // redirecting according to the logged in type
+    
+    
+     if (cookiesCompany != null) {
             var intent = Intent(this, CompanyDashboard::class.java)
 
             startActivity(intent)
@@ -38,6 +40,7 @@ class LoginChoose : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+       
 
         val btnChooseUser = findViewById<Button>(R.id.btnChooseUser)
         btnChooseUser.setOnClickListener {

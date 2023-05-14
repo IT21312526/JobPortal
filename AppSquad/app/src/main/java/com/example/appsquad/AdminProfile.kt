@@ -15,6 +15,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+
+
 class AdminProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,8 @@ class AdminProfile : AppCompatActivity() {
             if (data != null) {
                 tvName.text = data.email
                 tvEmail.text = data.password
-
+                
+                //converting into bitmap
                 val bitmap = BitmapFactory.decodeByteArray(data.profilePic, 0, data.profilePic.size)
                 imgAdmin.setImageBitmap(bitmap)
             }

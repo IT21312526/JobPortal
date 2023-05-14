@@ -18,11 +18,14 @@ class AdminDashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_dashboard)
-
-        val repository = CompanyRepository(CompanyDatabase.getInstance(this))
+        
+        
+        //repositories
+           val repository = CompanyRepository(CompanyDatabase.getInstance(this))
         val repositoryJob = JobRepository(CompanyDatabase.getInstance(this))
         val repositoryUser = UserRepository(CompanyDatabase.getInstance(this))
         val repositoryGig = GigRepository(CompanyDatabase.getInstance(this))
+        
         CoroutineScope(Dispatchers.IO).launch {
             val data = repository.getAllCompanies()
             val dataCompCount = repository.getAllCompanyCounts()
