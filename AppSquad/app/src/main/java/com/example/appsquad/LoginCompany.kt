@@ -128,7 +128,9 @@ class LoginCompany : AppCompatActivity() {
 
 
     }
-
+ suspend fun showToast(message: String) = withContext(Dispatchers.Main) {
+        Toast.makeText(this@LoginCompany, message, Toast.LENGTH_SHORT).show()
+    }
    
 
 
